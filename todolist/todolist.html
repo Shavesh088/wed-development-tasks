@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To Do List</title>
+        <link rel="stylesheet" href="todo.css">
+        <link rel="icon" type="image/x-icon" href="OIP.jpg">
+    </head>
+    
+    <body>
+        <div class="div">
+        <h1>Enter the list here</h1>
+        <input id="input">
+        <button onclick="add()">ADD</button>
+        <ul id="list">
+            <li>
+                hello
+                <button onclick="drop(event)">Delete</button>
+                <button onclick="cancel(event)">Finished</button>
+            </li>
+        </ul>
+        </div>
+    </body>
+
+</html>
+
+<script>
+    var li =document.getElementById("list")
+    var data =document.getElementById("input")
+
+    function add()
+    {
+        var listitem=document.createElement("li")
+        listitem.innerHTML=data.value + "<button onclick='drop(event)'>Delete</button>" + "<button onclick='cancel(event)'>Finished</button>"
+        li.append(listitem)
+        alert("You added the task")
+    }
+
+    function drop(event)
+    {
+        event.target.parentElement.remove()
+    }
+    function cancel(event)
+    {
+        event.target.parentElement.remove()
+        var print= event.target.parentElement.textContent
+        alert("wow you finished the task")
+    }
+</script>
